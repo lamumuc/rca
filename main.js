@@ -23,7 +23,7 @@ function json2Table () {
 async function csv2Table () {
 	$.ajax({
 		type: "GET",
-		url: "./rdb/mastertable.csv",
+		url: "./mastertable.csv",
 		dataType: "text",
 		success: function(csv) {
 			var data = $.csv.toObjects(csv);
