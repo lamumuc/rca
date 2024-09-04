@@ -1,0 +1,13 @@
+RewriteEngine on
+
+# get g from url
+#RewriteRule ^([a-z0-9]{4})$ /rca/?g=$1 [L]
+RewriteRule ^~([^~]+)/?$ /rca/?g=$1 [L]
+RewriteRule ^~([^~]+)~([^~]+)/?$ /rca/?g=$1&c=$2 [L]
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index
